@@ -8,6 +8,8 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"os/exec"
+	"path/filepath"
 	"strings"
 )
 
@@ -26,7 +28,8 @@ func myHandel(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(len(jsonData))
 
 		//加在配置
-		curPath, _ := os.Getwd()
+		file, _ := exec.LookPath(os.Args[0])
+		curPath, _ := filepath.Abs(file)
 		f, err := os.OpenFile(curPath+"/config.json", os.O_RDONLY, 0777)
 		if err != nil {
 			fmt.Println(err)
