@@ -91,7 +91,7 @@ func myHandel(w http.ResponseWriter, r *http.Request) {
 			for _, v := range content {
 				fileContent += v[1] + " " + php + " " + v[0] + "\n"
 			}
-			fileContent = strings.TrimSuffix(fileContent, "\n")
+			//fileContent = strings.TrimSuffix(fileContent, "\n")
 			fmt.Println(c)
 			fmt.Println(fileContent)
 			len, err := f.WriteString(fileContent)
