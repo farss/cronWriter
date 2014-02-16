@@ -26,7 +26,8 @@ func myHandel(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(len(jsonData))
 
 		//加在配置
-		f, err := os.OpenFile("config.json", os.O_RDONLY, 0777)
+		curPath, _ := os.Getwd()
+		f, err := os.OpenFile(curPath+"/config.json", os.O_RDONLY, 0777)
 		if err != nil {
 			fmt.Println(err)
 		}
