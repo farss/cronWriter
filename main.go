@@ -29,7 +29,7 @@ func myHandel(w http.ResponseWriter, r *http.Request) {
 
 		//加在配置
 		file, _ := exec.LookPath(os.Args[0])
-		curPath, _ := filepath.Abs(file)
+		curPath, _ := filepath.Abs(filepath.Dir(file))
 		f, err := os.OpenFile(curPath+"/config.json", os.O_RDONLY, 0777)
 		if err != nil {
 			fmt.Println(err)
